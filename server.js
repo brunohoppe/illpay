@@ -1,3 +1,4 @@
+require('./app/config/config');
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
@@ -7,10 +8,6 @@ const db = require('./app/config/db');
 const app = express();
 const port = process.env.PORT || 8000;
 const EventEmitter = require('events');
-
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config();
-}
 
 const mEmitter = new EventEmitter();
 
@@ -26,7 +23,7 @@ addProcessListener();
 
 
 async function init(){
-
+  console.log()
   let database = await MongoClient.connect(db.url);
   // Load routes
   routes(app, database.db('illpaydb'));
