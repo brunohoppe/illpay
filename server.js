@@ -1,4 +1,4 @@
-require('./app/config/config');
+const config = require('./app/config/config');
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
